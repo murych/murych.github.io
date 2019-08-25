@@ -1,0 +1,31 @@
+title: "Dev ur Ops"
+author: "Тимур Майзенберг a.k.a. murych"
+description: "Скучная писанина по теч-рилейтед вещам"
+permalink: /:title/
+lang: "ru"
+
+show_footer: false           # show the "previous" and "next" links at the end of each post
+dark_theme: false            # use the dark mode as default
+dark_header: false            # keep the header dark
+dark_footer: false           # keep the footer dark
+# style: minimal             # use a simpler style inspired by the minima theme
+
+navigation:                  # site navigation in the header
+  # - README.md
+  # - Gitlab: 
+  # - Twitter: 
+
+icons:                      # icons in the header, see http://fontawesome.com/icons
+ envelope: "mailto:t.mayzenberg@lambda-it.ru"
+ github: "https://github.com/murych"
+ gitlab: "https://gitlab.com/murych"
+ twitter: "https://twitter.com/murych_"
+ # rss: "/contrast/feed.xml"
+
+comments:                    # embed disqus or isso comments
+#  disqus: ""
+#  isso: ""
+
+plugins:
+ - jekyll-feed
+ - jekyll-default-layout
