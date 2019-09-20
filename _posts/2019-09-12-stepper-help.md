@@ -1,5 +1,5 @@
 ---
-title: "[WIP] Проблема с созданием линейной рампы ускорения"
+title: "Проблема с созданием линейной рампы ускорения"
 mathjax: true
 ---
 
@@ -44,7 +44,7 @@ mathjax: true
 Число, до которого должен досчитать счетчик на нужной частоте $$f_i$$ рассчитывается, согласно даташиту на МК:
 
 $$
-    n = \frac{F_{arduino}}{prescaler \cdot f_i} - 1.
+    n = \frac{F_{MCU}}{prescaler \cdot f_i} - 1.
 $$
 
 Нужная частота 40 кГц, частота работы микроконтроллера 16 МГц, предделитель -- 8.
@@ -137,7 +137,8 @@ stepper.steps_to_break = stepper.steps_to_cruise * stepper.profile.accel / stepp
 
 if (stepper.steps_remaining < stepper.steps_to_cruise + stepper.steps_to_break) {
     //! cannot reach max speed, will need to break earlier
-    stepper.steps_to_cruise = stepper.steps_remaining * stepper.profile.decel / (stepper.profile.accel + stepper.profile.decel);
+    stepper.steps_to_cruise = stepper.steps_remaining * stepper.profile.decel /
+        (stepper.profile.accel + stepper.profile.decel);
     stepper.steps_to_break = stepper.steps_remaining - stepper.steps_to_cruise;
 }
 
@@ -149,8 +150,10 @@ stepper.step_delay_cruise = long(1e+6 / double(speed) / stepper.config_ms);
 
 {% highlight c %}
 if (stepper.steps_count < stepper.steps_to_cruise) {
-    stepper.step_delay = stepper.step_delay - (2 * stepper.step_delay + stepper.rest) / (4 * stepper.steps_count + 1);
-    stepper.rest = (stepper.steps_count < stepper.steps_to_cruise) ? (2 * stepper.step_delay + stepper.rest) % (4 * stepper.steps_count + 1) : 0;
+    stepper.step_delay = stepper.step_delay - (2 * stepper.step_delay + stepper.rest) /
+        (4 * stepper.steps_count + 1);
+    stepper.rest = (stepper.steps_count < stepper.steps_to_cruise) ?
+        (2 * stepper.step_delay + stepper.rest) % (4 * stepper.steps_count + 1) : 0;
 } else {
     stepper.step_delay = stepper.step_delay_cruise;
 }
@@ -167,7 +170,8 @@ case ACCELERATING:  // разгон
     break;
 
 case DECELERATING:  // торможение, заменяем знак в формулах для разгона
-    stepper.step_delay = stepper.step_delay - (2 * stepper.step_delay + stepper.rest) / (-4 * stepper.steps_remaining + 1);
+    stepper.step_delay = stepper.step_delay - (2 * stepper.step_delay + stepper.rest) /
+        (-4 * stepper.steps_remaining + 1);
     stepper.rest = (2 * stepper.step_delay + stepper.rest) % (-4 * stepper.steps_remaining + 1);
     break;
 
