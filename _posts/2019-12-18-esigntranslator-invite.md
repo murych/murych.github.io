@@ -9,6 +9,9 @@ categories: esigntranslator
 
 О подобных проектах можно было слышать, например, в контексте стартапа [CTRL Labs](https://www.ctrl-labs.com/), который не так давно выкупил [FB](https://www.theverge.com/2019/9/23/20881032/facebook-ctrl-labs-acquisition-neural-interface-armband-ar-vr-deal).
 Или про уже закрывшийся проект [MYO Armband](https://learn.adafruit.com/myo-armband-teardown/inside-myo), который не взлетел совсем-совсем.
+
+![MYO](https://cdn-learn.adafruit.com/assets/assets/000/030/336/large1024/wearables_myo-armband-teardown-04.jpg?1454513882)
+
 Отличие проекта заключается в том, что CTRL Labs разрабатывает своеобразное устройство ввода, интерфейс.
 Проект eSignTranslator задумывался как средство адаптации и реабилитации лиц с нарушениями речи и слуха.
 
