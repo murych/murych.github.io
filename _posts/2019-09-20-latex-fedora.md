@@ -1,5 +1,5 @@
 ---
-title: "Установка LaTeX в Fedora Workstation 30"
+title: "[latex] Установка LaTeX в Fedora Workstation 30"
 ---
 
 Коротко о том, как установить сам LaTeX в Fedora Linux, пакеты для поддержки русского языка, рецепт по установке отдельных пакетов и т.д.

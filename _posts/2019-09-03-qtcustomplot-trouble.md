@@ -1,5 +1,5 @@
 ---
-title: "Проблемы с отображением данных в QCustomPlot"
+title: "[qt] Проблемы с отображением данных в QCustomPlot"
 categories: qt
 ---
 
