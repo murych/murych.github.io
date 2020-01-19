@@ -1,3 +1,8 @@
+---
+title: "[arduino] QtCreator + Arduino = <3"
+categories: cmake, qtcreator, arduino
+---
+
 # Настраиваем Qt Creator для работы с Arduino
 
 Итак, первый лидар на сервомашинке оглядел комнату, русский язык на дешевый I2C экранчик повыводился.

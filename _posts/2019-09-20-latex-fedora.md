@@ -1,5 +1,6 @@
 ---
 title: "[latex] Установка LaTeX в Fedora Workstation 30"
+categories: latex, linux
 ---
 
 Коротко о том, как установить сам LaTeX в Fedora Linux, пакеты для поддержки русского языка, рецепт по установке отдельных пакетов и т.д.
@@ -9,7 +10,7 @@ title: "[latex] Установка LaTeX в Fedora Workstation 30"
 Установка базового набора из LaTeX, XeLaTeX (который я использую в своих работах), а также различных пакетов для поддержки кириллицы и цитирования литературы по ГОСТу:
 
 ```bash
-sudo dnf install \
+$ sudo dnf install \
             texlive-base \
             texlive-t2 \
             texlive-xetex \
@@ -26,7 +27,7 @@ sudo dnf install \
 Можно, зная название нужного модуля, попробовать поискать нужный пакет в dnf:
 
 ```bash
-dnf search siunitx
+$ dnf search siunitx
 ```
 
 В ответ получается примерно такой вывод:
@@ -43,15 +44,15 @@ texlive-siunitx.noarch : A comprehensive (SI) units package
 Тогда, собственно, просто устанавливаем соответствующий пакет:
 
 ```bash
-sudo dnf install -y texlive-siunitx
+$ sudo dnf install -y texlive-siunitx
 ```
 
 Другой способ пригодится, если вы не знаете имя модуля, в который входит необходимый файл типа `*.sty` или `*.cls`.
 В таком случае можно выполнить в пакетом менеджере по имени нужного файла:
 
 ```bash
-sudo dnf install 'tex(beamer.cls)' 
-sudo dnf install 'tex(hyperref.sty)' 
+$ sudo dnf install 'tex(beamer.cls)' 
+$ sudo dnf install 'tex(hyperref.sty)' 
 ```
 
 Тогда пакетный менеджер найдет необходимый пакет, содержащий нужный файл модуля и установит его.

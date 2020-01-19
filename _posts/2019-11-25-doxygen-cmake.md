@@ -1,5 +1,6 @@
 ---
 title: "[cmake] Генерируем Doxygen из CMake"
+categories: cmake, c
 ---
 
 # Постановка задачи

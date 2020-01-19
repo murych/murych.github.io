@@ -1,5 +1,6 @@
 ---
 title: "[cmake] Генерируем Doxygen в PDF"
+categories: cmake, latex
 ---
 
 # Постановка задачи
