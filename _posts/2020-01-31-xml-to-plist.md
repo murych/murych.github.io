@@ -2,7 +2,7 @@
 title: "Конвертация XML в PList"
 ---
 
-1. Берем исходный XML файл (пример из [википедии](https://ru.wikipedia.org/wiki/XML#%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9_%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82)):
+Берем исходный XML файл (пример из [википедии](https://ru.wikipedia.org/wiki/XML#%D0%9A%D0%BE%D1%80%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9_%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -36,7 +36,7 @@ title: "Конвертация XML в PList"
 </recipe>
 ```
 
-2. Конвертируем XML в JSON, например, на сайте [Code Beautify](https://codebeautify.org/xmltojson):
+Конвертируем XML в JSON, например, на сайте [Code Beautify](https://codebeautify.org/xmltojson):
 
 ```json
 {
@@ -75,16 +75,19 @@ title: "Конвертация XML в PList"
 }
 ```
 
-3. Берем мак (почем мне знать, откуда)
-4. Сохраняем JSON файл где-нибудь в загрузках
-5. Открываем терминал, заходим в загрузки
-6. Выполняем:
+Берем мак (почем мне знать, откуда).
+
+Сохраняем JSON файл где-нибудь в загрузках.
+
+Открываем терминал, заходим в загрузки.
+
+Выполняем:
 
 ```bash
 $ plutil -convert xml1 test.json -o test.plist
 ```
 
-7. ?????
+?????
 
 ```plist
 <?xml version="1.0" encoding="UTF-8"?>
@@ -126,4 +129,4 @@ $ plutil -convert xml1 test.json -o test.plist
 </plist>
 ```
 
-8. PROFIT!
+PROFIT!
