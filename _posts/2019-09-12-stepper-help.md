@@ -74,8 +74,7 @@ $$
 
 Объявим новый тип в виде структуры, содержащей всю информацию о состоянии ШД
 
-{% highlight c %}
-
+```c++
 typedef struct {
     //! pinout configuration
     uint8_t dir_pin;
@@ -108,8 +107,7 @@ typedef struct {
     //! step pulse duration for constant speed section (max rpm)
     long step_delay_cruise;
 } stepper_state;
-
-{% endhighlight %}
+```
 
 После запуска программы создается объект `stepper` этого типа.
 При вызове функции центрифугирования, в поле `speed_profile` записывается информация о том, что мы хотим линейного разгона.
@@ -118,18 +116,16 @@ typedef struct {
 Шагать на заданное количество шагов будем с помощью функции `move`, которая вызовет расчет первой задержки таймера, а затем -- расчет остальных задержек (до тех пор, пока не закончатся шаги).
 Естественно, при постоянной скорости, значение задержки сразу ставится максимальным и дальнейшего расчета не идет.
 
-{% highlight c %}
-
+```c++
 void move(long steps) {
     startMoving(steps);
     while (calcStepPulse());
 }
-
-{% endhighlight %}
+```
 
 Считаем первую задержку:
 
-{% highlight c %}
+```c++
 speed = stepper.config_rpm * stepper.config_spr / 60;
 
 stepper.steps_to_cruise = stepper.config_ms * long(speed * speed / (2 * stepper.profile.accel));
@@ -144,11 +140,11 @@ if (stepper.steps_remaining < stepper.steps_to_cruise + stepper.steps_to_break) 
 
 stepper.step_delay = long(1e+6 * 0.676 * sqrt(2.0 / stepper.profile.accel / stepper.config_ms));
 stepper.step_delay_cruise = long(1e+6 / double(speed) / stepper.config_ms);
-{% endhighlight %}
+```
 
 Расчет остальных задержек:
 
-{% highlight c %}
+```c++
 if (stepper.steps_count < stepper.steps_to_cruise) {
     stepper.step_delay = stepper.step_delay - (2 * stepper.step_delay + stepper.rest) /
         (4 * stepper.steps_count + 1);
@@ -158,11 +154,11 @@ if (stepper.steps_count < stepper.steps_to_cruise) {
     stepper.step_delay = stepper.step_delay_cruise;
 }
 break;
-{% endhighlight %}
+```
 
 Здесь же выполняется реакция на различные участки рампы -- разгон, вращение на максимальной скорости, торможение и остановка:
 
-{% highlight c %}
+```c++
 switch (stepperGetCurrentStatus()) {
 
 case ACCELERATING:  // разгон
@@ -184,7 +180,7 @@ case STOPPED:   // остановка
 case CRUISING:  // вращение на максимальной скорости
     break;
 }
-{% endhighlight %}
+```
 
 Расчет количества тактов МК на вычисление задержки не проводился (yet).
 
